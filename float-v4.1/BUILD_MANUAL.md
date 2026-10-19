@@ -1,5 +1,7 @@
 # Float Mount v4.1 · Build Manual
 
+> **PDF version (print-ready, one step per page): [Float_Mount_v4.1_Build_Manual.pdf](Float_Mount_v4.1_Build_Manual.pdf)**
+
 PoE wall mount for iPad Pro 12.9″ (3rd gen)
 
 Machined 6061 aluminium shell with a 3D-printed carrier. Surface-mounted, floating on a 14 mm shadow gap.

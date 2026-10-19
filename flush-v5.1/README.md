@@ -1,4 +1,4 @@
-> **Step-by-step build manual with renders and schematics: [BUILD_MANUAL.md](BUILD_MANUAL.md)**
+> **Build manual:** [PDF](Float_Mount_v5.1_Flush_Build_Manual.pdf) (print-ready, one step per page) · [read on GitHub](BUILD_MANUAL.md)
 
 # Float Mount v5.1: FLUSH in-wall (printable)
 

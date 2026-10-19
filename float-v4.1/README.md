@@ -1,4 +1,4 @@
-> **Step-by-step build manual with renders and schematics: [BUILD_MANUAL.md](BUILD_MANUAL.md)**
+> **Build manual:** [PDF](Float_Mount_v4.1_Build_Manual.pdf) (print-ready, one step per page) · [read on GitHub](BUILD_MANUAL.md)
 
 # Float Mount v4.1: Hybrid (aluminium shell + printed carrier)
 

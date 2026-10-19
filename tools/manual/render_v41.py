@@ -116,7 +116,7 @@ rb = rl.translate((dx, dy, dz)).val().BoundingBox()
 ins += [(rl.translate((dx, dy, dz)), "print", 1)]
 for (x, y) in h.RAIL_BOLTS:
     ins.append((zcyl(x + dx, -y + dy, 2.1, rb.zmax - 5.5, rb.zmax + 0.8), "hw", 1))
-jobs.append(("a1_inserts", ins, dict(cam=(150, -230, 260), zoom=1.25)))
+jobs.append(("a1_inserts", ins, dict(cam=(150, -230, 260), zoom=1.0)))
 
 # ---------------------------------------------------------------- A2 rail to bracket
 rail_scr = [cap(x, y, -2.0, 6.0, 1.6, 3.0, 8.0, up=True).translate((0, 0, -10)) for (x, y) in h.RAIL_BOLTS]

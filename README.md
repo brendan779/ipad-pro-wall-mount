@@ -11,7 +11,8 @@ There are two versions:
 | Aluminium part | 344.1 × 238.9 × 11.7 mm shell, about 223 g | 355.1 × 233.6 × 3 mm trim, about 188 g |
 | Wall work | One small cut-out behind the panel for the cable | 343.1 × 221.6 mm cut-out between studs (10 mm plasterboard, 70 mm studs at 450 c/c) |
 | Fixing | Bracket + hook + one hidden M3 lock screw | 4 dog-ear arms clamp the plasterboard; magnetic trim |
-| Build manual | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
+| Build manual (PDF) | [Float_Mount_v4.1_Build_Manual.pdf](float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) | [Float_Mount_v5.1_Flush_Build_Manual.pdf](flush-v5.1/Float_Mount_v5.1_Flush_Build_Manual.pdf) |
+| Build manual (web) | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
 
 Both versions use a **standard straight USB-C cable** (the plug and its bend hide inside the frame ends), a PoE+ to USB-C adapter (e.g. PoE Texas / Heckler T515), and print with **no supports** on a 256 mm bed (Bambu P1S / X1C class) in PETG or ASA.
 
@@ -20,7 +21,8 @@ Both versions use a **standard straight USB-C cable** (the plug and its bend hid
 ```
 float-v4.1/                 surface-mount version
   README.md                 build notes: parts, machining, hardware, assembly
-  BUILD_MANUAL.md           step-by-step manual with renders and schematics
+  Float_Mount_v4.1_Build_Manual.pdf  build manual, one step per page
+  BUILD_MANUAL.md           the same manual as a GitHub page
   hybrid.py                 parametric CadQuery source (regenerates every file)
   overhang_audit.py         checks each part for unsupported overhangs
   assembly_hybrid_v4_1.step whole stack
@@ -29,7 +31,7 @@ float-v4.1/                 surface-mount version
   images/                   manual renders and schematics
 
 flush-v5.1/                 flush in-wall version
-  README.md, BUILD_MANUAL.md, flush51.py, overhang_audit.py
+  README.md, Float_Mount_v5.1_Flush_Build_Manual.pdf, BUILD_MANUAL.md, flush51.py
   CUTOUT_TEMPLATE_A3.pdf    print at 100% on A3 (100 mm check bar)
   assembly_flush_v5_1.step, machine/trim_6061.step, print/, images/
 

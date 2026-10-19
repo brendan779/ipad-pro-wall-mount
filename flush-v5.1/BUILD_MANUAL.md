@@ -1,5 +1,7 @@
 # Float Mount v5.1 (Flush) · Build Manual
 
+> **PDF version (print-ready, one step per page): [Float_Mount_v5.1_Flush_Build_Manual.pdf](Float_Mount_v5.1_Flush_Build_Manual.pdf)**
+
 In-wall PoE mount for iPad Pro 12.9″ (3rd gen)
 
 A 3D-printed box set into the plasterboard, finished with a 3 mm machined 6061 trim. The glass sits almost flush with the wall.
@@ -58,13 +60,13 @@ A 3D-printed box set into the plasterboard, finished with a 3 mm machined 6061 t
 
 | Item | Value |
 | --- | --- |
-| Trim size | 355.1 × 233.6 × 3 mm, 6061, about 188 g |
+| Trim size | 355.1 × 233.6 × 3 mm 6061, ~188 g |
 | Trim width | ends 37.2 mm · top/bottom 9.3 mm |
 | Off the wall | trim 4.5 mm · glass 1.2 mm |
 | Wall cut-out | 343.1 × 221.6 mm, R7 corners |
 | Depth in the wall | 57.5 mm from the wall face |
 | Wall | 10 mm plasterboard, 70 mm studs at 450 c/c |
-| Fits | iPad Pro 12.9″ 3rd gen (A1876, A1895, A2014, A1983) |
+| Fits | iPad Pro 12.9″ 3rd gen (A1876/A1895/A2014/A1983) |
 | Power + data | PoE+ (802.3at) over one Cat6 |
 | Fixing | 4 dog-ear arms clamp the plasterboard |
 | Printer | 256 × 256 mm bed (P1S / X1C class) |
