@@ -14,6 +14,8 @@ There are two versions:
 | Build manual (PDF) | [Float_Mount_v4.1_Build_Manual.pdf](float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) | [Float_Mount_v5.1_Flush_Build_Manual.pdf](flush-v5.1/Float_Mount_v5.1_Flush_Build_Manual.pdf) |
 | Build manual (web) | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
 
+**No CNC?** Both mounts also come in a [**fully printed**](fully-printed/) version. The aluminium face becomes a two-piece printed face joined with dovetails, and each version has a ready-to-slice Bambu Studio 3MF (also suitable for MakerWorld).
+
 Both versions use a **standard straight USB-C cable** (the plug and its bend hide inside the frame ends), a PoE+ to USB-C adapter (e.g. PoE Texas / Heckler T515), and print with **no supports** on a 256 mm bed (Bambu P1S / X1C class) in PETG or ASA.
 
 ## Repository layout
@@ -34,6 +36,11 @@ flush-v5.1/                 flush in-wall version
   README.md, Float_Mount_v5.1_Flush_Build_Manual.pdf, BUILD_MANUAL.md, flush51.py
   CUTOUT_TEMPLATE_A3.pdf    print at 100% on A3 (100 mm check bar)
   assembly_flush_v5_1.step, machine/trim_6061.step, print/, images/
+
+fully-printed/              no-machining versions: printed face halves + Bambu Studio 3MF projects
+  float-v4.1-printed/       Float_Mount_v4.1_Printed.3mf, print/
+  flush-v5.1-printed/       Float_Mount_v5.1_Flush_Printed.3mf, print/
+  printed.py, make3mf.py    regenerate the printed faces and the 3MFs
 
 tools/manual/               scripts that render the manual images (VTK + matplotlib)
 ```
