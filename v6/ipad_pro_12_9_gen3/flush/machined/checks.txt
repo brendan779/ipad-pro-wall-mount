@@ -1,0 +1,42 @@
+iPad Pro 12.9″ (3rd gen): trim 359.1 x 233.6 x 3 mm (196 g 6061), ends 36.5, top/bottom 9.3 visible
+cut-out 347.1 x 221.6 (R7); depth 57.5 from the wall face
+magnets y = ±100.0, ±19.5 (8 pairs); pins y = ±93.0; clamps y = ±44.0
+arm reach ±182.6; 35 mm studs at 450 c/c leave 24.9 mm a side (45 mm studs: 19.9)
+clash deck/sleeve                0.0
+clash deck/ipad                  0.0
+clash sleeve/ipad                0.0
+clash trim/ipad                  0.0
+clash trim/deck                  0.0
+clash trim/sleeve                0.0
+clash plug/deck                  0.0
+clash plug/sleeve                0.0
+clash plug/trim                  0.0
+clash bend/deck                  0.0
+clash bend/sleeve                0.0
+clash bend/back                  0.0
+clash back/sleeve                0.0
+clash sleeve/studs               0.0
+clash back/studs                 0.0
+clash arms/sleeve                0.0
+clash arms/deck                  0.0
+clash arms/plaster               0.0
+clash arms/studs                 0.0
+clash arms retracted/sleeve      0.0
+clash arms retracted/deck        0.0
+clash button 1/sleeve            0.0
+clash button 1/deck              0.0
+clash button 2/sleeve            0.0
+clash button 2/deck              0.0
+deck seats on ledges: True
+retracted arms outside the cut-out: 0.00 mm3
+size sleeve_L          178.6 x  231.6 x  56.5  fits 256
+size sleeve_R          178.6 x  231.6 x  56.5  fits 256
+size deck_L            170.3 x  215.0 x   9.2  fits 256
+size deck_R            170.3 x  215.0 x   9.2  fits 256
+size back_plate_L      232.6 x  219.6 x   2.5  fits 256
+size back_plate_R      112.6 x  219.6 x   2.5  fits 256
+size dog_ear_arm_x4     24.0 x   12.0 x   6.0  fits 256
+size sleeve_full       357.1 x  231.6 x  56.5  needs a big bed
+size deck_full         340.5 x  215.0 x   9.2  needs a big bed
+size back_plate_full   345.1 x  219.6 x   2.5  needs a big bed
+RESULT: ALL CHECKS PASS

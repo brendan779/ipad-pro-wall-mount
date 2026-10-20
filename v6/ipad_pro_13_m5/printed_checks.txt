@@ -1,0 +1,9 @@
+iPad Pro 13″ (M5): seam at X+29.2
+shell_print_L      208.8 x  239.6 x 10.95  solids=1  fits 256  overhang 3.9 mm2
+shell_print_R      145.3 x  239.6 x 10.94  solids=1  fits 256  overhang 0.0 mm2
+shell_print_full   349.1 x  239.6 x 10.95  solids=1  needs a big bed  overhang 3.9 mm2
+trim_print_L       214.3 x  234.3 x  3.02  solids=1  fits 256  overhang 3.9 mm2
+trim_print_R       150.8 x  234.3 x  3.01  solids=1  fits 256  overhang 0.0 mm2
+trim_print_full    360.1 x  234.3 x  3.02  solids=1  needs a big bed  overhang 3.9 mm2
+overlap shell halves: 0.000
+overlap trim halves: 0.000

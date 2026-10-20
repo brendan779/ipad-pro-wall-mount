@@ -1,0 +1,9 @@
+iPad Pro 12.9″ (3rd gen): seam at X+0.0
+shell_print_L      179.1 x  238.9 x 11.72  solids=1  fits 256  overhang 10.6 mm2
+shell_print_R      174.1 x  238.9 x 11.72  solids=1  fits 256  overhang 6.7 mm2
+shell_print_full   348.1 x  238.9 x 11.72  solids=1  needs a big bed  overhang 17.3 mm2
+trim_print_L       184.6 x  233.6 x  3.02  solids=1  fits 256  overhang 10.6 mm2
+trim_print_R       179.6 x  233.6 x  3.02  solids=1  fits 256  overhang 6.7 mm2
+trim_print_full    359.1 x  233.6 x  3.02  solids=1  needs a big bed  overhang 17.3 mm2
+overlap shell halves: 0.000
+overlap trim halves: 0.000

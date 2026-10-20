@@ -1,0 +1,9 @@
+iPad Pro 11″ (M5): seam at X+27.7
+shell_print_L      191.3 x  201.5 x 11.11  solids=1  fits 256  overhang 3.9 mm2
+shell_print_R      130.9 x  201.5 x 11.11  solids=1  fits 256  overhang 0.0 mm2
+shell_print_full   317.2 x  201.5 x 11.11  solids=1  needs a big bed  overhang 3.9 mm2
+trim_print_L       196.8 x  196.2 x  3.02  solids=1  fits 256  overhang 3.9 mm2
+trim_print_R       136.4 x  196.2 x  3.01  solids=1  fits 256  overhang 0.0 mm2
+trim_print_full    328.2 x  196.2 x  3.02  solids=1  needs a big bed  overhang 3.9 mm2
+overlap shell halves: 0.000
+overlap trim halves: 0.000

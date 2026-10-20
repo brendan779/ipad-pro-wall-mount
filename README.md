@@ -14,6 +14,8 @@ There are two versions:
 | Build manual (PDF) | [Float_Mount_v4.1_Build_Manual.pdf](float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) | [Float_Mount_v5.1_Flush_Build_Manual.pdf](flush-v5.1/Float_Mount_v5.1_Flush_Build_Manual.pdf) |
 | Build manual (web) | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
 
+> **New: [v6](v6/)** builds both mounts, machined or fully printed, for the **iPad Pro 12.9″ (3rd gen), iPad Pro 13″ (M5), iPad Pro 11″ (M5) and iPad mini (A17 Pro)**. It adds relief pockets so the volume and top buttons aren't pressed, 2 mm more room at each end for the USB-C cable loop, and end stops on the Float's wall rail so the carrier can't slide sideways. Start there for a new build.
+
 **Ordering the Float shell from a CNC service?** Use [**Float v4.2**](float-v4.2/) and its [build manual](float-v4.2/Float_Mount_v4.2_Build_Manual.pdf). It is v4.1 plus a JLCCNC-ready manufacturing drawing (threaded holes M3/M2.5, hole table, section), drill-point-safe hole depths with M3 × 5 / M2.5 × 5 screws, and one-piece versions of the split printed parts for large-bed printers.
 
 **No CNC?** Both mounts also come in a [**fully printed**](fully-printed/) version. The aluminium face becomes a two-piece printed face joined with dovetails, and each version has a ready-to-slice Bambu Studio 3MF (also suitable for MakerWorld).
@@ -49,6 +51,10 @@ fully-printed/              no-machining versions: printed face halves + Bambu S
   float-v4.2-printed/       Float_Mount_v4.2_Printed.3mf, print/, print/one_piece/ (uncut shell + carrier)
   flush-v5.1-printed/       Float_Mount_v5.1_Flush_Printed.3mf, print/
   printed.py, printed42.py, make3mf.py   regenerate the printed faces and the 3MFs
+
+v6/                         all four iPads × Float/Flush × machined/printed (see v6/README.md)
+  <ipad>/float/machined, float/printed, flush/machined, flush/printed
+  tablets.py, float6.py, flush6.py, printed6.py, drawing6.py, template6.py, make3mf6.py
 
 tools/manual/               scripts that render the manual images (VTK + matplotlib)
 ```

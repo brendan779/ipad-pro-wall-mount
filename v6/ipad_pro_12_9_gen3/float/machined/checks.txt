@@ -1,0 +1,33 @@
+iPad Pro 12.9″ (3rd gen): shell 348.1 x 238.9 x 11.7 mm, ends 33.8, top/bottom 12.0, 25.7 off the wall, 231 g 6061
+end bosses at y = ±101.00, ±40.50; long bosses at x = -110.0, -40.0, 40.0, 110.0
+bracket 200.0 x 200.0, cut-out 46 x 68, AU plate holes: yes
+clash rear/bracket                         0.0
+clash rear/bracket +10 mm (offered high)   0.0
+clash shell/bracket +10                    0.0
+clash carrier/ipad                         0.0
+clash shell/ipad                           0.0
+clash shell/carrier                        0.0
+clash shell/hanger,lock                    0.0
+clash plug/carrier                         0.0
+clash plug/shell                           0.0
+clash bend/carrier                         0.0
+clash bend/shell                           0.0
+clash button 1/carrier                     0.0
+clash button 1/shell                       0.0
+clash button 2/carrier                     0.0
+clash button 2/shell                       0.0
+stop  hanger +0.5 mm X hits stop           9.24 OK
+stop  hanger -0.5 mm X hits stop           9.24 OK
+boss tip z 5.00; screw head counterbore 3.00 deep (flush); engagement 3.0 mm
+M3: skin under drill point 1.45 mm
+M2.5: skin under drill point 1.58 mm
+size carrier_TL          171.8 x  117.2 x   9.2  fits 256
+size carrier_TR          171.8 x  117.2 x   9.2  fits 256
+size carrier_BL          171.8 x  117.2 x   9.2  fits 256
+size carrier_BR          171.8 x  117.2 x   9.2  fits 256
+size hanger              110.0 x   21.4 x  10.6  fits 256
+size lock_boss            60.0 x   17.5 x  10.0  fits 256
+size wall_bracket        200.0 x  214.5 x  12.0  fits 256
+size catch_rail          120.8 x   28.0 x   6.6  fits 256
+size carrier one piece   343.5 x  234.3 x   9.2  needs a big bed
+RESULT: ALL CHECKS PASS

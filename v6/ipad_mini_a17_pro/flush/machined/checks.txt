@@ -1,0 +1,42 @@
+iPad mini (A17 Pro): trim 273.9 x 153.4 x 3 mm (135 g 6061), ends 36.5, top/bottom 9.3 visible
+cut-out 261.9 x 141.4 (R7); depth 57.5 from the wall face
+magnets y = ±59.5 (4 pairs); pins y = ±45.5; clamps y = ±47.0
+arm reach ±140.0; 35 mm studs at 450 c/c leave 67.5 mm a side (45 mm studs: 62.5)
+clash deck/sleeve                0.0
+clash deck/ipad                  0.0
+clash sleeve/ipad                0.0
+clash trim/ipad                  0.0
+clash trim/deck                  0.0
+clash trim/sleeve                0.0
+clash plug/deck                  0.0
+clash plug/sleeve                0.0
+clash plug/trim                  0.0
+clash bend/deck                  0.0
+clash bend/sleeve                0.0
+clash bend/back                  0.0
+clash back/sleeve                0.0
+clash sleeve/studs               0.0
+clash back/studs                 0.0
+clash arms/sleeve                0.0
+clash arms/deck                  0.0
+clash arms/plaster               0.0
+clash arms/studs                 0.0
+clash arms retracted/sleeve      0.0
+clash arms retracted/deck        0.0
+clash button 1/sleeve            0.0
+clash button 1/deck              0.0
+clash button 2/sleeve            0.0
+clash button 2/deck              0.0
+deck seats on ledges: True
+retracted arms outside the cut-out: 0.00 mm3
+size sleeve_L          136.0 x  151.5 x  56.5  fits 256
+size sleeve_R          136.0 x  151.5 x  56.5  fits 256
+size deck_L            127.7 x  134.9 x   9.6  fits 256
+size deck_R            127.7 x  134.9 x   9.6  fits 256
+size back_plate_L      190.0 x  139.5 x   2.5  fits 256
+size back_plate_R       70.0 x  139.5 x   2.5  fits 256
+size dog_ear_arm_x4     24.0 x   12.0 x   6.0  fits 256
+size sleeve_full       271.9 x  151.5 x  56.5  needs a big bed
+size deck_full         255.4 x  134.9 x   9.6  fits 256
+size back_plate_full   259.9 x  139.5 x   2.5  needs a big bed
+RESULT: ALL CHECKS PASS
