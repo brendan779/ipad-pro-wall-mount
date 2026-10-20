@@ -82,7 +82,7 @@ Upload your iPad's `float/machined/machine/shell_6061.step` together with `shell
 
 ## Fully printed builds
 
-Each `printed/` 3MF opens in Bambu Studio with every part on its own plate. Filament 2 is the visible face, so you can choose its colour. Per-part walls and infill are already set, and nothing needs supports. The face prints face-down in two dovetailed halves: on the 12.9″ and mini the seam is on the centreline, and on the M5s it sits just right of the camera notch. Printer, process and filament presets aren't embedded, so pick your own printer, PETG or ASA, and a Textured PEI plate. Each `print/one_piece/` folder has the split parts uncut, for large-bed printers.
+Each `printed/` 3MF opens in Bambu Studio with every part on its own plate. Filament 2 is the visible face, so you can choose its colour. Per-part walls and infill are already set, and nothing needs supports. The face prints face-down in two dovetailed halves: on the 12.9″ and mini the seam is on the centreline, and on the M5s it sits just right of the camera notch. The project opens on Bambu's standard presets (P1S 0.4 mm, 0.20 mm Standard, Bambu PETG Basic in both slots, Textured PEI plate), unmodified, so the file changes none of your machine's G-code or limits. If you have a different printer or filament, select yours after opening; the plates and per-part settings stay. Each `print/one_piece/` folder has the split parts uncut, for large-bed printers.
 
 ## Repository layout
 

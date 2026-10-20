@@ -2,12 +2,17 @@
 Write Bambu Studio project 3MFs (geometry, plates, plate thumbnails, per-object
 settings, filament slot per object) for the fully printed Float Mount builds.
 
-Printer, process and filament presets are deliberately NOT embedded: Bambu Studio
-applies the ones you pick when the project opens (P1S / X1 / A1 / H2 ...), so
-nothing in here can override your machine's start G-code or limits.
+Metadata/project_settings.config names Bambu's own system presets (P1S 0.4,
+0.20mm Standard, 2 x Bambu PETG Basic, Textured PEI) and lists no settings as
+different from them, so Bambu Studio loads those presets unmodified: nothing in
+here can change any machine G-code or limit. Without that file Bambu Studio
+treats the 3MF as "not from Bambu Lab", loads geometry only and drops the plates
+and the per-object settings. Pick another printer or filament after opening and
+the plates and per-object settings stay.
 
     python make3mf.py <out_printed_dir> <repo_milled_v41_print_dir> <repo_milled_v51_print_dir>
 """
+import json
 import math
 import os
 import sys
@@ -21,7 +26,7 @@ import trimesh
 BED = 256.0           # P1S / X1 / P1P plate; every part here also fits A1 and H2 beds
 GAP = 8.0             # spacing between parts on a plate
 STRIDE = BED * 1.2    # Bambu Studio lays plates out on a grid with a 1/5 plate gap
-APP = "BambuStudio-02.03.00.70"
+APP = "BambuStudio-02.01.00.59"   # older than any current release, so no "newer file" prompt
 
 FACE = {"wall_loops": "4", "sparse_infill_density": "20%", "sparse_infill_pattern": "gyroid",
         "bottom_shell_layers": "4", "bottom_surface_pattern": "monotonic"}
@@ -30,6 +35,30 @@ MID = {"wall_loops": "4", "sparse_infill_density": "20%", "sparse_infill_pattern
 BRACKET = {"wall_loops": "4", "sparse_infill_density": "25%", "sparse_infill_pattern": "gyroid"}
 STRONG = {"wall_loops": "5", "sparse_infill_density": "40%", "sparse_infill_pattern": "gyroid"}
 SOLID = {"wall_loops": "6", "sparse_infill_density": "100%", "sparse_infill_pattern": "zig-zag"}
+
+
+# Bambu system presets the project opens with. Every key not listed in
+# different_settings_to_system is replaced by the system preset's own value on load.
+PRINTER = "Bambu Lab P1S 0.4 nozzle"
+PROCESS = "0.20mm Standard @BBL X1C"
+FILAMENT = ("Bambu PETG Basic @BBL X1C", "GFG00", "PETG")
+FILAMENT_COLOURS = ("#3D4045", "#D4D6DB")    # 1: hidden parts, 2: visible face
+
+
+def project_settings():
+    n = len(FILAMENT_COLOURS)
+    name, fid, ftype = FILAMENT
+    return {
+        "version": APP.split("-")[1], "from": "project", "name": "project_settings",
+        "printer_settings_id": PRINTER, "printer_model": "Bambu Lab P1S", "printer_variant": "0.4",
+        "nozzle_diameter": ["0.4"], "print_settings_id": PROCESS,
+        "filament_settings_id": [name] * n, "filament_ids": [fid] * n, "filament_type": [ftype] * n,
+        "filament_colour": list(FILAMENT_COLOURS), "filament_diameter": ["1.75"] * n,
+        "filament_extruder_variant": ["Direct Drive Standard"] * n,
+        "filament_self_index": [str(i + 1) for i in range(n)],
+        "inherits_group": [""] * (n + 2), "different_settings_to_system": [""] * (n + 2),
+        "curr_bed_type": "Textured PEI Plate",
+    }
 
 
 def load(path, rot_x180=False):
@@ -241,6 +270,7 @@ def build(out_path, title, description, plates, tmpdir):
                     f'    </part>\n  </object>')
     files["Metadata/model_settings.config"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<config>\n' + "\n".join(objs)
                                                + "\n" + "\n".join(plate_xml) + "\n</config>\n")
+    files["Metadata/project_settings.config"] = json.dumps(project_settings(), indent=4) + "\n"
     files["[Content_Types].xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n'
                                     '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">\n'
                                     ' <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>\n'

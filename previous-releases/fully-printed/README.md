@@ -66,7 +66,7 @@ They open in Bambu Studio with every part named, placed and grouped onto plates:
   | Dog-ear arms | 6 | 100% |
 
 - **No supports** on any part.
-- **Printer, process and filament presets are not embedded.** When the project opens, Bambu Studio uses the printer and filament you have selected, so nothing in the file can override your machine's start G-code or limits. Pick your printer, PETG for both filament slots, and **Textured PEI Plate**. The 0.20 mm Standard process is a good default.
+- **Opens on Bambu's standard presets** (P1S 0.4 mm, 0.20 mm Standard, Bambu PETG Basic in both slots, Textured PEI plate), unmodified, so the file changes none of your machine's G-code or limits. If you have a different printer or filament, select yours after opening; the plates and per-part settings stay.
 - The STLs are in each `print/` folder if you use another slicer.
 
 ### Uploading to MakerWorld
