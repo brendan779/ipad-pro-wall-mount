@@ -14,7 +14,7 @@ There are two versions:
 | Build manual (PDF) | [Float_Mount_v4.1_Build_Manual.pdf](float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) | [Float_Mount_v5.1_Flush_Build_Manual.pdf](flush-v5.1/Float_Mount_v5.1_Flush_Build_Manual.pdf) |
 | Build manual (web) | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
 
-**Ordering the Float shell from a CNC service?** Use [**Float v4.2**](float-v4.2/). It is v4.1 plus a JLCCNC-ready manufacturing drawing (threaded holes M3/M2.5, hole table, section), drill-point-safe hole depths with M3 × 5 / M2.5 × 5 screws, and one-piece versions of the split printed parts for large-bed printers.
+**Ordering the Float shell from a CNC service?** Use [**Float v4.2**](float-v4.2/) and its [build manual](float-v4.2/Float_Mount_v4.2_Build_Manual.pdf). It is v4.1 plus a JLCCNC-ready manufacturing drawing (threaded holes M3/M2.5, hole table, section), drill-point-safe hole depths with M3 × 5 / M2.5 × 5 screws, and one-piece versions of the split printed parts for large-bed printers.
 
 **No CNC?** Both mounts also come in a [**fully printed**](fully-printed/) version. The aluminium face becomes a two-piece printed face joined with dovetails, and each version has a ready-to-slice Bambu Studio 3MF (also suitable for MakerWorld).
 
@@ -35,6 +35,7 @@ float-v4.1/                 surface-mount version
   images/                   manual renders and schematics
 
 float-v4.2/                 v4.1 + CNC drawing for the shell, drill-safe threads, one-piece printed parts
+  Float_Mount_v4.2_Build_Manual.pdf  build manual (v4.2 changes, JLCCNC ordering, printed-shell option)
   machine/shell_6061_drawing.pdf   A3 drawing to send with shell_6061.step
   print/one_piece/          uncut carrier (340 mm beds)
 

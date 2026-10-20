@@ -1,6 +1,6 @@
 # Fully printed versions
 
-> **v4.2:** [`float-v4.2-printed/`](float-v4.2-printed/) has the same printed shell halves plus **one-piece** versions of the shell (344.1 × 238.9 mm) and carrier (339.6 × 234.4 mm) in `print/one_piece/` for large-bed printers, and a v4.2 3MF. Use M3 × 5 / M2.5 × 5 screws with it (see [float-v4.2](../float-v4.2/)).
+> **v4.2:** [`float-v4.2-printed/`](float-v4.2-printed/) has the same printed shell halves plus **one-piece** versions of the shell (344.1 × 238.9 mm) and carrier (339.6 × 234.4 mm) in `print/one_piece/` for large-bed printers, and a v4.2 3MF. Use M3 × 5 / M2.5 × 5 screws with it, and follow the [v4.2 build manual](../float-v4.2/Float_Mount_v4.2_Build_Manual.pdf).
 
 No machining needed: the aluminium face of each mount (the v4.1 **shell** and the v5.1 **trim**) is replaced by a 3D-printed face. Everything else is the same printed parts as the milled builds, so the assembly steps in the main build manuals still apply.
 

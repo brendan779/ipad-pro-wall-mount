@@ -5,7 +5,7 @@ Same mount as [v4.1](../float-v4.1/), with two changes:
 1. **The aluminium shell is ready to order from a CNC service (JLCCNC or similar).** It now comes with a manufacturing drawing that specifies the threaded holes, and the holes are redesigned for a real drill.
 2. **One-piece versions of the split printed parts**, for anyone with a big enough bed.
 
-The [v4.1 build manual](../float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) still applies; see [changes from v4.1](#changes-from-v41) below.
+**Build manual:** [Float_Mount_v4.2_Build_Manual.pdf](Float_Mount_v4.2_Build_Manual.pdf) (one step per page) · [read on GitHub](BUILD_MANUAL.md). It covers the 5 mm screws, the new hole depths, ordering from JLCCNC, the printed-shell option and the one-piece carrier.
 
 ---
 
@@ -59,15 +59,12 @@ The split versions are still there for 256 mm beds: carrier quarters in [`print/
 
 Everything else (carrier, hanger, lock boss, bracket, catch rail, and every clearance) is unchanged from v4.1. The model's clash checks all read 0.
 
-**In the v4.1 manual, read:**
-
-- **Machining op 1, step 4:** "drill Ø2.5 / Ø2.05 to **4.5 mm** from the boss tip, tap 3.0 mm" (or let the CNC shop do it from the drawing).
-- **Bench assembly step 8:** "**8 × M3 × 5** and **8 × M2.5 × 5**".
-- **Required hardware:** the same change.
+The [v4.2 build manual](Float_Mount_v4.2_Build_Manual.pdf) already includes all of these changes.
 
 ## Files
 
 ```
+Float_Mount_v4.2_Build_Manual.pdf  build manual (BUILD_MANUAL.md = same on GitHub)
 machine/shell_6061.step             CNC model (holes at tap-drill size)
 machine/shell_6061_drawing.pdf      A3 manufacturing drawing (+ .png preview)
 print/                              printed parts, carrier split into quarters (256 mm beds)
