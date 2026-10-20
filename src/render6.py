@@ -6,7 +6,7 @@ Check renders for v6 (one tablet): button reliefs, the plug/loop cavity and the 
 import os
 import sys
 
-sys.path.insert(0, "/home/claude/ipad-pro-wall-mount/tools/manual")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools", "manual"))
 import mr  # noqa: E402
 
 _orig = mr._stl

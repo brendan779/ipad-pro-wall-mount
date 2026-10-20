@@ -1,6 +1,6 @@
 # Float Mount v6 Flush · Build Manual
 
-> **PDF version (print-ready, one step per page): [Float_Mount_v6_Flush_Build_Manual.pdf](Float_Mount_v6_Flush_Build_Manual.pdf)**
+> **PDF version (print-ready, one step per page): [Float_Mount_v6_Flush_Build_Manual.pdf](Float_Mount_v6_Flush_Build_Manual.pdf)** · [Back to the repository](../../README.md)
 
 In-wall PoE mount for iPad Pro 12.9″ (3rd gen), iPad Pro 13″ and 11″ (M5) and iPad mini (A17 Pro)
 
@@ -90,7 +90,7 @@ A1876 · A1895 · A2014 · A1983 **ipad_pro_12_9_gen3** Button positions are est
 
 2024, from Apple’s drawings **ipad_mini_a17_pro** 4 magnet pairs; the most room between studs.
 
-Each iPad has its own folder in the repository’s v6/ directory, with the machined and the fully printed build kept apart. The steps in this manual are the same for all four.
+Each iPad has its own folder at the top of the repository, with the machined and the fully printed build kept apart. The steps in this manual are the same for all four.
 
 ---
 
@@ -424,7 +424,7 @@ The back plate is split off-centre on purpose: its joint sits 60 mm from the sle
 - CUTOUT_TEMPLATE_A3.pdf
 - assembly_flush6_printed.step · hardware.txt
 
-#### v6/ (the sources)
+#### src/ (the sources)
 
 - tablets.py: the four iPads
 - flush6.py · template6.py

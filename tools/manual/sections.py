@@ -1,6 +1,6 @@
 """Cross-section schematics (1:1 cuts through the CAD) and the wiring diagram."""
 import sys
-sys.path[:0] = ["../../float-v4.1", "../../flush-v5.1"]
+sys.path[:0] = ["../../previous-releases/float-v4.1", "../../previous-releases/flush-v5.1"]
 import cadquery as cq
 import matplotlib
 matplotlib.use("Agg")

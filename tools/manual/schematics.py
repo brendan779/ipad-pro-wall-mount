@@ -1,5 +1,5 @@
 import sys
-sys.path[:0] = ["../../float-v4.1", "../../flush-v5.1"]
+sys.path[:0] = ["../../previous-releases/float-v4.1", "../../previous-releases/flush-v5.1"]
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
