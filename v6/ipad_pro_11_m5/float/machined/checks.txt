@@ -18,7 +18,8 @@ clash button 2/carrier                     0.0
 clash button 2/shell                       0.0
 stop  hanger +0.5 mm X hits stop           9.24 OK
 stop  hanger -0.5 mm X hits stop           9.24 OK
-boss tip z 4.39; screw head counterbore 2.39 deep (cap head sits 0.6 proud: use low-head DIN 7984 for flush); engagement 3.0 mm
+boss tip z 4.39; screw head counterbore 2.39 deep (a cap head would sit 0.6 proud: ISO 7380 button heads (1.65 mm) used); engagement 3.0 mm
+hardware: 42 parts modelled, 0 clash(es)
 M3: skin under drill point 1.45 mm
 M2.5: skin under drill point 1.58 mm
 size carrier_TL          156.3 x   98.5 x   8.6  fits 256

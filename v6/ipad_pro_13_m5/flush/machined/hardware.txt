@@ -1,0 +1,7 @@
+iPad Pro 13″ (M5) · Flush v6 hardware (all modelled in assembly_flush6.step)
+ 16 × magnet N52 10x1.5   (trim pockets 8 · deck posts 8)
+  2 × dowel pin 3x6 ISO8734   (trim, locating in the deck 2)
+  4 × M4x30 pan ISO7045   (deck posts down to the dog-ear arms 4)
+  4 × M4 heat-set insert   (dog-ear arms 4)
+  8 × M3 heat-set insert   (sleeve back bosses 8)
+  8 × M3x8 countersunk ISO10642   (back plate to the sleeve 8)

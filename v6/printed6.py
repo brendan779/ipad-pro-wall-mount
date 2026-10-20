@@ -101,5 +101,43 @@ if __name__ == "__main__":
         except Exception:
             v = 0.0
         rep.append(f"overlap {nm}: {v:.3f}")
+    # full STEP assemblies of the printed builds, hardware included
+    fa = cq.Assembly(name=f"Float_v6_printed_{h.TAB_KEY}")
+    fa.add(h.br, name="wall_bracket", color=cq.Color(0.62, 0.63, 0.66))
+    fa.add(h.car_a, name="carrier", color=cq.Color(0.15, 0.15, 0.17))
+    fa.add(h.hanger_a, name="hanger", color=cq.Color(0.85, 0.45, 0.15))
+    fa.add(h.lock_a, name="lock_boss", color=cq.Color(0.85, 0.45, 0.15))
+    fa.add(h.ipad, name="ipad_reference", color=cq.Color(0.03, 0.03, 0.05))
+    fa.add(h.plug, name="usb_c_plug_reference", color=cq.Color(0.9, 0.9, 0.9))
+    fa.add(h.up(shell_L), name="shell_printed_L", color=cq.Color(0.83, 0.84, 0.86))
+    fa.add(h.up(shell_R), name="shell_printed_R", color=cq.Color(0.78, 0.79, 0.81))
+    fk = h.float_kit()
+    fk.to_assembly(fa)
+    fa.export(f"{out}/float/assembly_float6_printed.step")
+    fc = fk.clashes({"shell": h.up(shell), "carrier": h.car_a, "hanger": h.hanger_a, "lock_boss": h.lock_a,
+                     "wall_bracket": h.br_plate, "catch_rail": h.catch_rail, "ipad": h.ipad})
+    la = cq.Assembly(name=f"Flush_v6_printed_{h.TAB_KEY}")
+    la.add(f.studs, name="studs_reference", color=cq.Color(0.80, 0.65, 0.45))
+    la.add(f.plaster, name="plasterboard_reference", color=cq.Color(0.93, 0.93, 0.90, 0.5))
+    la.add(f.sleeve, name="sleeve", color=cq.Color(0.15, 0.15, 0.17))
+    la.add(f.deck, name="deck", color=cq.Color(0.30, 0.30, 0.34))
+    la.add(f.back, name="back_plate", color=cq.Color(0.22, 0.22, 0.25))
+    for i, a_ in enumerate(f.arms):
+        la.add(a_, name=f"dog_ear_{i+1}", color=cq.Color(0.9, 0.45, 0.15))
+    la.add(f.ipad, name="ipad_reference", color=cq.Color(0.03, 0.03, 0.05))
+    la.add(f.plug, name="usb_c_plug_reference", color=cq.Color(0.95, 0.95, 0.95))
+    la.add(trim_L, name="trim_printed_L", color=cq.Color(0.83, 0.84, 0.86))
+    la.add(trim_R, name="trim_printed_R", color=cq.Color(0.78, 0.79, 0.81))
+    lk = f.flush_kit()
+    lk.to_assembly(la)
+    la.export(f"{out}/flush/assembly_flush6_printed.step")
+    lc = lk.clashes({"trim": trim, "sleeve": f.sleeve, "deck": f.deck, "back_plate": f.back,
+                     "arms": f.union_all(f.arms), "ipad": f.ipad})
+    for nm, k_, c_ in (("float", fk, fc), ("flush", lk, lc)):
+        rep.append(f"{nm} printed assembly: {len(k_.items)} hardware parts, {len(c_)} clash(es)")
+        rep += [f"  CLASH {n} / {p}: {v} mm3" for n, p, v in c_]
+        open(f"{out}/{nm}/hardware.txt", "w").write(
+            f"{h.TAB['name']} · {nm.title()} v6 printed hardware (all modelled in assembly_{nm}6_printed.step)\n"
+            + "\n".join(k_.bom_lines()) + "\n")
     open(f"{out}/printed_checks.txt", "w").write("\n".join(rep) + "\n")
     print("\n".join(rep))

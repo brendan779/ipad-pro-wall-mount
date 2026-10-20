@@ -2,6 +2,13 @@
 
 v6 builds both mounts for four iPads from one set of parametric sources:
 
+| Build manual | PDF (one step per page) | Web |
+|---|---|---|
+| **Float** (surface mount) | [Float_Mount_v6_Build_Manual.pdf](manuals/float/Float_Mount_v6_Build_Manual.pdf) | [BUILD_MANUAL.md](manuals/float/BUILD_MANUAL.md) |
+| **Flush** (in-wall) | [Float_Mount_v6_Flush_Build_Manual.pdf](manuals/flush/Float_Mount_v6_Flush_Build_Manual.pdf) | [BUILD_MANUAL.md](manuals/flush/BUILD_MANUAL.md) |
+
+One manual per mount covers all four iPads. The steps are drawn on the 12.9″, and every difference between models is called out in a **BY MODEL** box.
+
 | Folder | iPad | Size (mm) | Source of the dimensions |
 |---|---|---|---|
 | [`ipad_pro_12_9_gen3/`](ipad_pro_12_9_gen3/) | iPad Pro 12.9″ (3rd gen: A1876, A1895, A2014, A1983) | 280.6 × 214.9 × 5.9 | v4.2 / v5.1 values. **Button positions are estimates** (see below) |
@@ -14,9 +21,13 @@ Each iPad folder holds four builds, with machined and printed kept apart:
 ```
 <ipad>/
   float/machined/   aluminium shell (STEP + JLCCNC drawing) + printed carrier, hanger, lock, bracket, rail
+                    assembly_float6.step (with all hardware) · hardware.txt · checks.txt
   float/printed/    the same mount with a printed face: Bambu Studio 3MF + STLs
+                    assembly_float6_printed.step · hardware.txt
   flush/machined/   aluminium trim (STEP) + printed sleeve, deck, back plate, arms + A3 cut-out template
+                    assembly_flush6.step (with all hardware) · hardware.txt · checks.txt
   flush/printed/    the same mount with a printed trim: Bambu Studio 3MF + STLs + A3 cut-out template
+                    assembly_flush6_printed.step · hardware.txt
   printed_checks.txt
 ```
 
@@ -28,7 +39,8 @@ Every `print/` folder also has a `one_piece/` subfolder with the split parts unc
 2. **2 mm more room for the USB-C loop at each end.** The plug cavity is 2 mm longer, so the cable can bend back around the plug. The frame ends are 2 mm wider to match, so each mount is **4 mm longer overall** than v4.2 / v5.1. Both ends grow so the face stays symmetric.
 3. **Lateral stops on the Float hook.** The catch rail on the wall bracket now has an end cheek at each side, rising 12 mm above the lip. The hanger drops between them with 0.4 mm clearance each side, so the carrier can no longer slide left or right on the wall. In the model, shifting the hanger 0.5 mm either way runs it into a cheek.
 4. **Thinner iPads, same safe holes.** The shell's boss height now tracks the iPad's thickness, so every tapped hole keeps a **1.45 mm (M3) / 1.58 mm (M2.5) skin** under the drill point on all four models.
-5. **iPad Pro M5 front camera on the long edge.** The camera slot moves to the top bar. The printed face's seam moves 3 mm past it, and the inner top/bottom bosses move out to clear the seam keys.
+5. **Every screw, insert, nut, magnet and pin is in the STEP assemblies** (`hardware6.py`): 42 parts in the Float, 42 in the Flush (34 on the 11″ and mini, which have 4 magnet pairs). Each is named by size and standard, e.g. `hw_M3x5_cap_ISO4762_3`, and `hardware.txt` beside each assembly is its bill of materials. The build checks that no head, nut, magnet or pin touches a part it shouldn't, and that every thread and insert bites into its own part. That check found a real fault in the Flush for the 11″ and mini (a locating pin hole under a clamp post), now fixed.
+6. **iPad Pro M5 front camera on the long edge.** The camera slot moves to the top bar. The printed face's seam moves 3 mm past it, and the inner top/bottom bosses move out to clear the seam keys.
 
 Each model's speaker, mic and button openings come from Apple's drawings (the 12.9″ from v4.2), and they set where the bosses, magnets, pins and clamp arms go. `checks.txt` lists the positions chosen and every clash test.
 
@@ -40,7 +52,7 @@ Each model's speaker, mic and button openings come from Apple's drawings (the 12
 | Shell mass (6061) | 231 g | 227 g | 196 g | 161 g |
 | Plate stock | 12 mm | 12 mm | 12 mm | 15 mm (or 12.7) |
 | Off the wall | 25.7 | 24.9 | 25.1 | 26.1 |
-| Shell screws | 8× M3 × 5 + 8× M2.5 × 5 cap | M3 × 5 / M2.5 × 5 **low-head (DIN 7984)** | M3 × 5 / M2.5 × 5 **low-head (DIN 7984)** | 8× M3 × 5 + 8× M2.5 × 5 cap |
+| Shell screws | 8× M3 × 5 + 8× M2.5 × 5 socket cap (ISO 4762) | M3 × 5 / M2.5 × 5 **button head (ISO 7380)** | M3 × 5 / M2.5 × 5 **button head (ISO 7380)** | 8× M3 × 5 + 8× M2.5 × 5 socket cap (ISO 4762) |
 | Wall bracket | 200 × 200, AU plate holes | 200 × 200.6, AU plate holes | 200 × 162.6, AU plate holes | 200 × 119.8, no AU holes (no room) |
 | **Flush** trim | 359.1 × 233.6 × 3 | 360.1 × 234.2 × 3 | 328.2 × 196.2 × 3 | 273.9 × 153.4 × 3 |
 | Trim mass (6061) | 196 g | 199 g | 169 g | 135 g |
@@ -50,7 +62,7 @@ Each model's speaker, mic and button openings come from Apple's drawings (the 12
 
 All sizes are in mm. Box depth is 57.5 mm from the wall face on every model.
 
-**Why low-head screws on the M5s:** these iPads are about 0.6 mm thinner than the 12.9″, so the carrier is thinner too. The counterbore under each screw head is then only 2.2–2.4 mm deep, so a standard cap head (3 mm) would sit 0.6–0.8 mm proud of the carrier back and could rock the carrier on the bracket. DIN 7984 low-head cap screws (2 mm head) sit flush.
+**Why button heads on the M5s:** these iPads are about 0.6 mm thinner than the 12.9″, so the carrier is thinner too. The counterbore under each screw head is then only 2.2–2.4 mm deep, so a standard cap head (3 mm) would sit 0.6–0.8 mm proud of the carrier back and could rock the carrier on the bracket. ISO 7380 button heads (1.65 mm on M3, 1.3 mm on M2.5) sit below the surface. DIN 7984 low-head screws are hard to find in M2.5, so button heads are used for both sizes.
 
 ## Ordering the shell from JLCCNC (Float, machined)
 
@@ -82,6 +94,11 @@ python flush6.py out/flush               # trim, sleeve, deck, back plate, arms 
 python template6.py out/flush/CUTOUT_TEMPLATE_A3.pdf
 python printed6.py out/printed           # printed shell + trim, halves and one-piece
 python make3mf6.py $V6_TABLET out/float out/flush out/printed out/3mf
+python audit_all.py out                  # overhang audit of every printed part → out/overhang_audit.txt
 ```
+
+The manual images come from `tools/manual/render_v6.py` (`float`, `flush` or `fronts`), and the hardware in them is the same hardware the STEP assemblies carry.
+
+[`overhang_audit.txt`](overhang_audit.txt) lists every printed part for every iPad. The only unsupported areas left are the Ø6 screw-counterbore ceilings in the Float carrier (small bridges) and first-layer countersink and chamfer edges.
 
 To add another iPad, add an entry to `tablets.py`. Give its size, corner radius, camera, speakers, mics, buttons and rear camera keep-out, then run the commands above. The generators place the bosses, magnets, pins and clamps clear of the openings, and `checks.txt` ends in `RESULT: ALL CHECKS PASS` or lists what clashes.

@@ -14,7 +14,7 @@ There are two versions:
 | Build manual (PDF) | [Float_Mount_v4.1_Build_Manual.pdf](float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) | [Float_Mount_v5.1_Flush_Build_Manual.pdf](flush-v5.1/Float_Mount_v5.1_Flush_Build_Manual.pdf) |
 | Build manual (web) | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
 
-> **New: [v6](v6/)** builds both mounts, machined or fully printed, for the **iPad Pro 12.9″ (3rd gen), iPad Pro 13″ (M5), iPad Pro 11″ (M5) and iPad mini (A17 Pro)**. It adds relief pockets so the volume and top buttons aren't pressed, 2 mm more room at each end for the USB-C cable loop, and end stops on the Float's wall rail so the carrier can't slide sideways. Start there for a new build.
+> **New: [v6](v6/)** builds both mounts, machined or fully printed, for the **iPad Pro 12.9″ (3rd gen), iPad Pro 13″ (M5), iPad Pro 11″ (M5) and iPad mini (A17 Pro)**. It adds relief pockets so the volume and top buttons aren't pressed, 2 mm more room at each end for the USB-C cable loop, and end stops on the Float's wall rail so the carrier can't slide sideways. Every screw, insert, nut, magnet and pin is modelled in its STEP assemblies. Build manuals: [Float v6 (PDF)](v6/manuals/float/Float_Mount_v6_Build_Manual.pdf) · [Flush v6 (PDF)](v6/manuals/flush/Float_Mount_v6_Flush_Build_Manual.pdf). Start there for a new build.
 
 **Ordering the Float shell from a CNC service?** Use [**Float v4.2**](float-v4.2/) and its [build manual](float-v4.2/Float_Mount_v4.2_Build_Manual.pdf). It is v4.1 plus a JLCCNC-ready manufacturing drawing (threaded holes M3/M2.5, hole table, section), drill-point-safe hole depths with M3 × 5 / M2.5 × 5 screws, and one-piece versions of the split printed parts for large-bed printers.
 
@@ -54,7 +54,8 @@ fully-printed/              no-machining versions: printed face halves + Bambu S
 
 v6/                         all four iPads × Float/Flush × machined/printed (see v6/README.md)
   <ipad>/float/machined, float/printed, flush/machined, flush/printed
-  tablets.py, float6.py, flush6.py, printed6.py, drawing6.py, template6.py, make3mf6.py
+  manuals/float, manuals/flush   build manuals (PDF + web) covering all four iPads
+  tablets.py, float6.py, flush6.py, printed6.py, drawing6.py, template6.py, make3mf6.py, hardware6.py
 
 tools/manual/               scripts that render the manual images (VTK + matplotlib)
 ```

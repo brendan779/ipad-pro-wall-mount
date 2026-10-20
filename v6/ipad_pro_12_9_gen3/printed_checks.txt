@@ -7,3 +7,5 @@ trim_print_R       179.6 x  233.6 x  3.02  solids=1  fits 256  overhang 6.7 mm2
 trim_print_full    359.1 x  233.6 x  3.02  solids=1  needs a big bed  overhang 17.3 mm2
 overlap shell halves: 0.000
 overlap trim halves: 0.000
+float printed assembly: 42 hardware parts, 0 clash(es)
+flush printed assembly: 42 hardware parts, 0 clash(es)

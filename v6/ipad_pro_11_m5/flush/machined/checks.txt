@@ -1,6 +1,6 @@
 iPad Pro 11″ (M5): trim 328.2 x 196.2 x 3 mm (169 g 6061), ends 36.5, top/bottom 9.3 visible
 cut-out 316.2 x 184.2 (R7); depth 57.5 from the wall face
-magnets y = ±81.0 (4 pairs); pins y = ±59.5; clamps y = ±61.0
+magnets y = ±81.0 (4 pairs); pins y = ±69.0; clamps y = ±61.0
 arm reach ±167.1; 35 mm studs at 450 c/c leave 40.4 mm a side (45 mm studs: 35.4)
 clash deck/sleeve                0.0
 clash deck/ipad                  0.0
@@ -39,4 +39,5 @@ size dog_ear_arm_x4     24.0 x   12.0 x   6.0  fits 256
 size sleeve_full       326.2 x  194.2 x  56.5  needs a big bed
 size deck_full         309.6 x  177.6 x   8.6  needs a big bed
 size back_plate_full   314.2 x  182.2 x   2.5  needs a big bed
+hardware: 34 parts modelled, 0 clash(es)
 RESULT: ALL CHECKS PASS

@@ -66,9 +66,9 @@ def _gap_ok(y, r, bands, margin):
     return all(y + r + margin <= a or y - r - margin >= b for a, b in bands)
 
 
-def place(r, ends, lo, hi, margin=1.5, prefer=None, step=0.5):
+def place(r, ends, lo, hi, margin=1.5, prefer=None, step=0.5, extra=()):
     """y positions (+ and mirrored -) clear of every vented window on the given ends."""
-    bands = [w for e in ends for w in WIN[e]] + ([PLUG_BAND] if "+x" in ends else [])
+    bands = [w for e in ends for w in WIN[e]] + ([PLUG_BAND] if "+x" in ends else []) + list(extra)
     cands = []
     y = lo
     while y <= hi + 1e-9:
@@ -86,12 +86,16 @@ mag_corner = place(7.0, ("-x", "+x"), 20, IPAD_W / 2 - 7.45, prefer=IPAD_W / 2 -
 mag_inner = place(7.0, ("-x", "+x"), 10, (mag_corner or 50) - 30, prefer=18)
 MAG_YS = [y for y in (mag_corner, mag_inner) if y is not None]
 MAG_PTS = [(sx * MAG_X, sy * y) for sx in (-1, 1) for y in MAG_YS for sy in (-1, 1)]
-PIN_X = IPAD_L / 2 + 22
-pin_y = place(4.0, ("-x", "+x"), 20, IPAD_W / 2 - 10, prefer=IPAD_W / 2 - 32.45)
-PIN_PTS = [(-PIN_X, pin_y), (PIN_X, -pin_y)]
 CLAMP_X = BOX_X / 2 - WALL - 6.0
 clamp_y = place(5.5, ("-x", "+x"), 25, IPAD_W / 2 - 15, prefer=45.0)
 CLAMP_PTS = [(sx * CLAMP_X, sy * clamp_y) for sx in (-1, 1) for sy in (-1, 1)]
+PIN_X = IPAD_L / 2 + 22
+# the pin hole must stay out of the clamp's deck post (r5.5) and screw counterbore
+_PIN_DY = max(0.0, (5.5 + 1.6 + 1.0) ** 2 - (CLAMP_X - PIN_X) ** 2) ** 0.5
+pin_y = place(4.0, ("-x", "+x"), 20, IPAD_W / 2 - 10, prefer=IPAD_W / 2 - 32.45,
+              extra=[(clamp_y - _PIN_DY + 4.0 + 1.5, clamp_y + _PIN_DY - 4.0 - 1.5),
+                     (-clamp_y - _PIN_DY + 4.0 + 1.5, -clamp_y + _PIN_DY - 4.0 - 1.5)])
+PIN_PTS = [(-PIN_X, pin_y), (PIN_X, -pin_y)]
 GRILLE_X = [IPAD_L / 2 + 6 + 4 * i for i in range(5)]
 BACK_SPLIT_X = 60.0
 BACK_X = 0.784 * IPAD_L / 2
@@ -297,6 +301,29 @@ for b in TAB["buttons"]:
         buttons.append(box(x0, x1, b[1] + 2, b[2] - 2, EDGE_Z - 1.5, EDGE_Z + 1.5))
 
 
+# =============================== HARDWARE (for the STEP assembly) ============
+import hardware6 as hw  # noqa: E402
+
+
+def flush_kit(trim_name="trim"):
+    k = hw.Kit()
+    for (x, y) in MAG_PTS:
+        k.add("magnet_N52_10x1.5", hw.disc(MAG_D, MAG_H), hw.loc(x, y, Z_F + MAG_H, "-z"), hw.MAGNET, "trim pockets")
+        k.add("magnet_N52_10x1.5", hw.disc(MAG_D, MAG_H), hw.loc(x, y, Z_F, "-z"), hw.MAGNET, "deck posts")
+    for (x, y) in PIN_PTS:
+        k.add("dowel_pin_3x6_ISO8734", hw.pin(3.0, 6.0), hw.loc(x, y, Z_F + 2.0, "-z"), hw.STEEL, "trim, locating in the deck")
+    for (x, y) in CLAMP_PTS:
+        k.add("M4x30_pan_ISO7045", hw.screw("pan", "M4", 30), hw.loc(x, y, Z_F - 3.0, "-z"), hw.BLACK,
+              "deck posts down to the dog-ear arms")
+        k.add("M4_heat-set_insert", hw.insert("M4"), hw.loc(x, y, ARM_Z1, "-z"), hw.BRASS, "dog-ear arms", bites="arms")
+    for (x, y) in BACK_BOSSES:
+        k.add("M3_heat-set_insert", hw.insert("M3"), hw.loc(x, y, -SLEEVE_D, "+z"), hw.BRASS, "sleeve back bosses",
+              bites="sleeve")
+        k.add("M3x8_countersunk_ISO10642", hw.screw("csk", "M3", 8), hw.loc(x, y, -SLEEVE_D - BACK_T, "+z"), hw.BLACK,
+              "back plate to the sleeve")
+    return k
+
+
 def half(p, side):
     return p.intersect(box(min(0, side * 999), max(0, side * 999), -999, 999, -999, 999))
 
@@ -353,7 +380,13 @@ if __name__ == "__main__":
     assy.add(ipad, name="ipad_reference", color=cq.Color(0.03, 0.03, 0.05))
     assy.add(plug, name="usb_c_plug_reference", color=cq.Color(0.95, 0.95, 0.95))
     assy.add(trim, name="trim_6061", color=cq.Color(0.74, 0.75, 0.78))
+    kit = flush_kit()
+    kit.to_assembly(assy)
     assy.export(f"{out}/assembly_flush6.step")
+    hw_clash = kit.clashes({"trim": trim, "sleeve": sleeve, "deck": deck, "back_plate": back, "arms": arms_u,
+                            "ipad": ipad, "plasterboard": plaster, "studs": studs})
+    open(f"{out}/hardware.txt", "w").write(
+        f"{TAB['name']} · Flush v6 hardware (all modelled in assembly_flush6.step)\n" + "\n".join(kit.bom_lines()) + "\n")
 
     reach = CLAMP_X + ARM_REACH
     stud_face = STUD_CC / 2 - STUD_W / 2
@@ -390,6 +423,9 @@ if __name__ == "__main__":
     for nm, p in list(PRINT.items()) + list(ONE.items()):
         bb = p.val().BoundingBox()
         rep.append(f"size {nm:16s} {bb.xlen:6.1f} x {bb.ylen:6.1f} x {bb.zlen:5.1f}  {'fits 256' if max(bb.xlen, bb.ylen) <= 256 else 'needs a big bed'}")
+    rep.append(f"hardware: {len(kit.items)} parts modelled, {len(hw_clash)} clash(es)")
+    rep += [f"  CLASH {n} / {p}: {v} mm3" for n, p, v in hw_clash]
+    bad += len(hw_clash)
     rep.append("RESULT: " + ("ALL CHECKS PASS" if bad == 0 else f"{bad} PROBLEM(S)"))
     open(f"{out}/checks.txt", "w").write("\n".join(rep) + "\n")
     print("\n".join(rep))

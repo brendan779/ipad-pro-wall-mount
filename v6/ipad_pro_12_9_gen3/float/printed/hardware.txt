@@ -1,0 +1,8 @@
+iPad Pro 12.9″ (3rd gen) · Float v6 printed hardware (all modelled in assembly_float6_printed.step)
+  8 × M3x5 cap ISO4762   (carrier to shell, end bosses 8)
+  8 × M2.5x5 cap ISO4762   (carrier to shell, top/bottom bosses 8)
+  9 × M3 heat-set insert   (hanger 4 · lock boss (end-on) 1 · catch rail 4)
+ 10 × M3x8 countersunk ISO10642   (carrier to hanger 4 · carrier to lock boss 2 · bracket to catch rail, from the wall side 4)
+  2 × M3 nut ISO4032   (lock boss hex pockets 2)
+  1 × M3x12 cap ISO4762   (lock screw, up from below 1)
+  4 × wall screw M4x30 pan reference   (bracket slots (use anchors or wood screws to suit the wall) 4)

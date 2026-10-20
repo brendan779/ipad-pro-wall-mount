@@ -39,4 +39,5 @@ size dog_ear_arm_x4     24.0 x   12.0 x   6.0  fits 256
 size sleeve_full       357.1 x  231.6 x  56.5  needs a big bed
 size deck_full         340.5 x  215.0 x   9.2  needs a big bed
 size back_plate_full   345.1 x  219.6 x   2.5  needs a big bed
+hardware: 42 parts modelled, 0 clash(es)
 RESULT: ALL CHECKS PASS

@@ -186,7 +186,8 @@ for f in TAB["rear"]:                                               # rear-camer
     if f[0] == "circle":
         car = car.cut(zcyl(f[1], f[2], f[3], -1, CB + 0.01))
     else:
-        car = car.cut(box(f[1], f[2], f[3], f[4], -1, CB + 0.01))
+        # clipped to the iPad pocket, so the cut never undercuts the carrier wall
+        car = car.cut(box(f[1], f[2], f[3], f[4], -1, CB + 0.01).intersect(rrect(IN_L, IN_W, IN_R, CB + 3, z0=-2)))
 car = car.cut(box(IN_L / 2 - 0.5, IPAD_L / 2 + CAVITY_X, -(PLUG_W / 2 + 1.0), PLUG_W / 2 + 1.0, -1, PLATE_Z0 + 0.01))
 for sx, e in ((-1, "-x"), (1, "+x")):                              # open-top sound chambers
     cx0, cx1 = sorted((sx * (IN_L / 2 + END_RIB), sx * (IPAD_L / 2 + CAVITY_X)))
@@ -301,6 +302,46 @@ for b in TAB["buttons"]:
         buttons.append(up(box(x0, x1, b[1] + 2, b[2] - 2, EDGE_Z - 1.5, EDGE_Z + 1.5)))
 BIG = 2000
 
+# =========================== HARDWARE (for the STEP assembly) ================
+import hardware6 as hw  # noqa: E402
+
+LOW_HEAD = CB_FLOOR < hw.CAP["M3"][1] - 1e-6        # thin iPads: cap heads would stand proud
+
+
+def float_kit(shell_name="shell"):
+    k = hw.Kit()
+    kind = "button" if LOW_HEAD else "cap"
+    std = "ISO7380" if LOW_HEAD else "ISO4762"
+    for (x, y) in BOSS_PTS:
+        k.add(f"M3x5_{kind}_{std}", hw.screw(kind, "M3", 5), hw.loc(x, y, STANDOFF + CB_FLOOR, "+z"), hw.BLACK,
+              "carrier to shell, end bosses", bites=shell_name)
+    for (x, y) in LONG_PTS:
+        k.add(f"M2.5x5_{kind}_{std}", hw.screw(kind, "M2.5", 5), hw.loc(x, y, STANDOFF + CB_FLOOR, "+z"), hw.BLACK,
+              "carrier to shell, top/bottom bosses", bites=shell_name)
+    for (x, y) in HANG_BOLTS:
+        k.add("M3_heat-set_insert", hw.insert("M3"), hw.loc(x, y, STANDOFF, "-z"), hw.BRASS, "hanger", bites="hanger")
+        k.add("M3x8_countersunk_ISO10642", hw.screw("csk", "M3", 8), hw.loc(x, y, STANDOFF + CB, "-z"), hw.BLACK,
+              "carrier to hanger")
+    for (x, y) in LOCK_BOLTS:
+        k.add("M3_nut_ISO4032", hw.nut("M3"), hw.loc(x, y, STANDOFF - PAD_T + 0.1, "-z"), hw.STEEL, "lock boss hex pockets")
+        k.add("M3x8_countersunk_ISO10642", hw.screw("csk", "M3", 8), hw.loc(x, y, STANDOFF + CB, "-z"), hw.BLACK,
+              "carrier to lock boss")
+    k.add("M3_heat-set_insert", hw.insert("M3"), hw.loc(0, LOCK_Y + 8.5, STANDOFF + LOCK_Z, "+y"), hw.BRASS,
+          "lock boss (end-on)", bites="lock_boss")
+    k.add("M3x12_cap_ISO4762", hw.screw("cap", "M3", 12), hw.loc(0, LOCK_Y + 3.0, STANDOFF + LOCK_Z, "+y"), hw.BLACK,
+          "lock screw, up from below")
+    for (x, y) in RAIL_BOLTS:
+        k.add("M3_heat-set_insert", hw.insert("M3"), hw.loc(x, y, BR_T, "+z"), hw.BRASS, "catch rail", bites="catch_rail")
+        k.add("M3x8_countersunk_ISO10642", hw.screw("csk", "M3", 8), hw.loc(x, y, 0.0, "+z"), hw.BLACK,
+              "bracket to catch rail, from the wall side")
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            k.add("wall_screw_M4x30_pan_reference", hw.screw("pan", "M4", 30),
+                  hw.loc(sx * (BR_L / 2 - 18), sy * (BR_W / 2 - 18), BR_T, "-z"), hw.STEEL,
+                  "bracket slots (use anchors or wood screws to suit the wall)")
+    return k
+
+
 
 def quad(p, sx, sy):
     return p.intersect(box(min(0, sx * BIG), max(0, sx * BIG), min(0, sy * BIG), max(0, sy * BIG), -BIG, BIG))
@@ -345,7 +386,14 @@ if __name__ == "__main__":
     assy.add(ipad, name="ipad_reference", color=cq.Color(0.03, 0.03, 0.05))
     assy.add(plug, name="usb_c_plug_reference", color=cq.Color(0.9, 0.9, 0.9))
     assy.add(shell_a, name="shell_6061", color=cq.Color(0.72, 0.73, 0.76))
+    kit = float_kit()
+    kit.to_assembly(assy)
     assy.export(f"{out}/assembly_float6.step")
+    hw_parts = {"shell": shell_a, "carrier": car_a, "hanger": hanger_a, "lock_boss": lock_a,
+                "wall_bracket": up(br_plate, 0), "catch_rail": up(catch_rail, 0), "ipad": ipad}
+    hw_clash = kit.clashes(hw_parts)
+    open(f"{out}/hardware.txt", "w").write(
+        f"{TAB['name']} · Float v6 hardware (all modelled in assembly_float6.step)\n" + "\n".join(kit.bom_lines()) + "\n")
 
     rep = []
     rep.append(f"{TAB['name']}: shell {OUT_L:.1f} x {OUT_W:.1f} x {SHELL_H:.1f} mm, ends {FRAME_X:.1f}, top/bottom {FRAME_Y:.1f}, "
@@ -372,8 +420,11 @@ if __name__ == "__main__":
         bad += v <= 0
         rep.append(f"stop  {nm:36s} {v} {'OK' if v > 0 else 'NO CONTACT'}")
     rep.append(f"boss tip z {BOSS_Z0:.2f}; screw head counterbore {CB_FLOOR:.2f} deep "
-               f"({'flush' if CB_FLOOR >= 3.0 else f'cap head sits {3.0 - CB_FLOOR:.1f} proud: use low-head DIN 7984 for flush'}); "
+               f"({'ISO 4762 cap heads sit flush' if not LOW_HEAD else f'a cap head would sit {3.0 - CB_FLOOR:.1f} proud: ISO 7380 button heads (1.65 mm) used'}); "
                f"engagement {SCREW_LEN - CLAMP_T:.1f} mm")
+    rep.append(f"hardware: {len(kit.items)} parts modelled, {len(hw_clash)} clash(es)")
+    rep += [f"  CLASH {n} / {p}: {v} mm3" for n, p, v in hw_clash]
+    bad += len(hw_clash)
     for nm, r in (("M3", 1.25), ("M2.5", 1.025)):
         rep.append(f"{nm}: skin under drill point {SHELL_H - (BOSS_Z0 + DRILL_DEPTH + drill_cone_h(r)):.2f} mm")
     for nm, p in list(PRINT.items()) + [("carrier one piece", car)]:
