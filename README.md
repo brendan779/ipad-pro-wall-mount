@@ -1,152 +1,132 @@
-# iPad PoE Wall Mount (v6)
+# iPad PoE Wall Mount · v6
 
-Turns an iPad into a permanently powered HomeKit / Home Assistant panel over a single Cat6 cable (PoE+), with the cable fully hidden. There are two mounts, each machined (6061 aluminium face) or fully 3D-printed, for four iPads:
+Turn an iPad into a permanently powered HomeKit / Home Assistant wall panel, running on a single Cat6 cable (PoE+) with the cable completely hidden. There are two mounts, and each comes with a machined 6061 aluminium face or fully 3D-printed:
+
+| **Float**: surface mount | **Flush**: in-wall |
+|---|---|
+| ![Float Mount on a wall](manuals/float/images/hero.png) | ![Flush Mount in a plasterboard wall](manuals/flush/images/hero.png) |
+| Floats 14 mm off the wall on a shadow gap. Needs only a small cut-out behind the panel for the cable. | The glass sits 1.2 mm off the wall and the trim stands 4.5 mm proud. Fits a cut-out between studs in existing plasterboard. |
+| Hangs on a wall bracket between two end stops, locked by one hidden M3 screw | Four dog-ear arms clamp the plasterboard; the trim is held on by magnets |
+| 📘 [**Build manual (PDF)**](manuals/float/Float_Mount_v6_Build_Manual.pdf) · [web version](manuals/float/BUILD_MANUAL.md) | 📘 [**Build manual (PDF)**](manuals/flush/Float_Mount_v6_Flush_Build_Manual.pdf) · [web version](manuals/flush/BUILD_MANUAL.md) |
+
+Supported iPads:
 
 - **iPad Pro 12.9″** (3rd gen: A1876, A1895, A2014, A1983)
 - **iPad Pro 13″** (M5, 2025)
 - **iPad Pro 11″** (M5, 2025)
 - **iPad mini** (A17 Pro, 2024)
 
-| | **Float** (surface mount) | **Flush** (in-wall) |
-|---|---|---|
-| | ![Float Mount](manuals/float/images/hero.png) | ![Flush Mount](manuals/flush/images/hero.png) |
-| Look | Floats 14 mm off the wall on a shadow gap | Glass 1.2 mm off the wall, trim 4.5 mm proud |
-| Wall work | One small cut-out behind the panel for the cable | A cut-out between studs (10 mm plasterboard, studs at 450 c/c) |
-| Fixing | Bracket + hook between end stops + one hidden M3 lock screw | 4 dog-ear arms clamp the plasterboard; magnetic trim |
-| Build manual (PDF) | [Float_Mount_v6_Build_Manual.pdf](manuals/float/Float_Mount_v6_Build_Manual.pdf) | [Float_Mount_v6_Flush_Build_Manual.pdf](manuals/flush/Float_Mount_v6_Flush_Build_Manual.pdf) |
-| Build manual (web) | [BUILD_MANUAL.md](manuals/float/BUILD_MANUAL.md) | [BUILD_MANUAL.md](manuals/flush/BUILD_MANUAL.md) |
+## Start here
 
-One manual per mount covers all four iPads. The steps are drawn on the 12.9″, and every difference between models is called out in a **BY MODEL** box. Both mounts use a **standard straight USB-C cable**, a PoE+ to USB-C adapter (e.g. PoE Texas / Heckler T515), and print with **no supports** on a 256 mm bed in PETG or ASA.
+1. **Pick a mount:** Float (on the wall) or Flush (in the wall).
+2. **Pick your iPad:** each one has its own folder below.
+3. **Pick machined or printed:** the `machined/` build has an aluminium face you order from a CNC service or cut yourself. The `printed/` build prints everything, including the face, from a ready-made Bambu Studio project.
+4. **Follow the manual for your mount.** One manual covers all four iPads. The steps are drawn on the 12.9″, and anything that differs between models is called out in a **BY MODEL** box.
+
+| iPad | Float, machined | Float, printed | Flush, machined | Flush, printed | Flush wall template |
+|---|---|---|---|---|---|
+| **Pro 12.9″** (3rd gen) | [files](ipad_pro_12_9_gen3/float/machined/) · [CNC drawing](ipad_pro_12_9_gen3/float/machined/machine/shell_6061_drawing.pdf) | [3MF](ipad_pro_12_9_gen3/float/printed/Float_Mount_v6_pro-12-9-gen3_Float_Printed.3mf) · [files](ipad_pro_12_9_gen3/float/printed/) | [files](ipad_pro_12_9_gen3/flush/machined/) | [3MF](ipad_pro_12_9_gen3/flush/printed/Float_Mount_v6_pro-12-9-gen3_Flush_Printed.3mf) · [files](ipad_pro_12_9_gen3/flush/printed/) | [A3 PDF](ipad_pro_12_9_gen3/flush/machined/CUTOUT_TEMPLATE_A3.pdf) |
+| **Pro 13″** (M5) | [files](ipad_pro_13_m5/float/machined/) · [CNC drawing](ipad_pro_13_m5/float/machined/machine/shell_6061_drawing.pdf) | [3MF](ipad_pro_13_m5/float/printed/Float_Mount_v6_pro-13-m5_Float_Printed.3mf) · [files](ipad_pro_13_m5/float/printed/) | [files](ipad_pro_13_m5/flush/machined/) | [3MF](ipad_pro_13_m5/flush/printed/Float_Mount_v6_pro-13-m5_Flush_Printed.3mf) · [files](ipad_pro_13_m5/flush/printed/) | [A3 PDF](ipad_pro_13_m5/flush/machined/CUTOUT_TEMPLATE_A3.pdf) |
+| **Pro 11″** (M5) | [files](ipad_pro_11_m5/float/machined/) · [CNC drawing](ipad_pro_11_m5/float/machined/machine/shell_6061_drawing.pdf) | [3MF](ipad_pro_11_m5/float/printed/Float_Mount_v6_pro-11-m5_Float_Printed.3mf) · [files](ipad_pro_11_m5/float/printed/) | [files](ipad_pro_11_m5/flush/machined/) | [3MF](ipad_pro_11_m5/flush/printed/Float_Mount_v6_pro-11-m5_Flush_Printed.3mf) · [files](ipad_pro_11_m5/flush/printed/) | [A3 PDF](ipad_pro_11_m5/flush/machined/CUTOUT_TEMPLATE_A3.pdf) |
+| **mini** (A17 Pro) | [files](ipad_mini_a17_pro/float/machined/) · [CNC drawing](ipad_mini_a17_pro/float/machined/machine/shell_6061_drawing.pdf) | [3MF](ipad_mini_a17_pro/float/printed/Float_Mount_v6_mini-a17-pro_Float_Printed.3mf) · [files](ipad_mini_a17_pro/float/printed/) | [files](ipad_mini_a17_pro/flush/machined/) | [3MF](ipad_mini_a17_pro/flush/printed/Float_Mount_v6_mini-a17-pro_Flush_Printed.3mf) · [files](ipad_mini_a17_pro/flush/printed/) | [A3 PDF](ipad_mini_a17_pro/flush/machined/CUTOUT_TEMPLATE_A3.pdf) |
+
+> [!IMPORTANT]
+> **Building for the 12.9″?** Apple publishes no drawing for that model, so its button positions are estimates. Before you print, measure yours (see [Check the 12.9″ buttons](#check-the-129-buttons)).
+
+## What you need
+
+- A **PoE+ (802.3at)** switch port and a Cat6 run to the wall
+- A **PoE+ to USB-C adapter**, e.g. PoE Texas / Heckler T515 (25 W)
+- A **standard straight USB-C cable**. The frame is sized for a 17 × 12.5 × 7 mm plug overmold.
+- **PETG or ASA** filament (not PLA) and a 256 mm bed. Nothing needs supports.
+- For a machined face: 6061 plate (Float 12 mm, or 15 mm for the mini; Flush 3 mm), or a CNC service such as JLCCNC
+- Hardware: M3 / M2.5 screws, M3 and M4 heat-set inserts and, for the Flush, N52 10 × 1.5 mm magnets. Each assembly folder's `hardware.txt` lists exactly what that build needs, and the manuals list it step by step.
+
+## What's new in v6
+
+- **The buttons are left alone.** Every button has a 1.2 mm relief pocket. v4.2 pressed the 12.9″'s volume buttons.
+- **There's room for the cable loop.** Each end is 2 mm longer, so the USB-C cable can bend back round the plug. Panels are 4 mm longer overall.
+- **The Float can't slide sideways.** The wall rail has end stops with 0.4 mm clearance each side of the hanger.
+- **Four iPads.** One set of parametric sources builds every model, from Apple's dimensional drawings for the M5 iPads and the mini.
+- **The tapped holes are drill-safe on every model.** The shell bosses follow each iPad's thickness, so there is always 1.45 mm of metal under each drill point.
+- **All the hardware is in the STEP files.** Every screw, insert, nut, magnet and pin is modelled in place and named by size and standard, e.g. `hw_M3x5_cap_ISO4762_3`. A clash check confirms that every part fits its hole and touches nothing it shouldn't.
+
+## Per-model summary
+
+| (mm) | 12.9″ (3rd gen) | 13″ M5 | 11″ M5 | mini A17 Pro |
+|---|---|---|---|---|
+| **Float** panel | 348.1 × 238.9 × 11.7 | 349.1 × 239.5 × 10.9 | 317.2 × 201.5 × 11.1 | 262.9 × 158.8 × 12.1 |
+| Shell mass (6061) | 231 g | 227 g | 196 g | 161 g |
+| Depth off the wall | 25.7 | 24.9 | 25.1 | 26.1 |
+| Shell screws (8 × M3 × 5 + 8 × M2.5 × 5) | socket cap (ISO 4762) | **button head (ISO 7380)** | **button head (ISO 7380)** | socket cap (ISO 4762) |
+| Wall bracket | 200 × 200, AU wall-plate holes | 200 × 200.6, AU holes | 200 × 162.6, AU holes | 200 × 119.8, anchors only |
+| **Flush** trim (3 mm) | 359.1 × 233.6 | 360.1 × 234.2 | 328.2 × 196.2 | 273.9 × 153.4 |
+| Plasterboard cut-out | 347.1 × 221.6 | 348.1 × 222.2 | 316.2 × 184.2 | 261.9 × 141.4 |
+| Max off-centre between studs (450 c/c) | 19 | 19 | 35 | 62 |
+| Magnet pairs | 8 | 8 | 4 | 4 |
+
+The Flush box goes 57.5 mm deep from the wall face on every model. The M5 iPads are thinner, which leaves only 2.2–2.4 mm under each shell screw head. That is why they use button heads: a 3 mm cap head would stand proud and rock the panel on its bracket.
+
+## Check the 12.9″ buttons
+
+Hold the iPad in landscape with USB-C on the right, and measure from the top-left corner:
+
+- the start and end of the volume buttons along the top edge (v6 leaves them clear from **8 to 48 mm**), and
+- the start and end of the top button down the left end (clear from **8 to 36 mm**).
+
+If either one falls outside its range, change `buttons` in `_g3()` in [`src/tablets.py`](src/tablets.py) and regenerate (see [Customising and regenerating](#customising-and-regenerating)).
+
+## Ordering the Float shell (JLCCNC)
+
+Upload your iPad's `float/machined/machine/shell_6061.step` together with `shell_6061_drawing.pdf`. The drawing has the hole table (A1–A8 M3, B1–B8 M2.5) and a section through a boss, so the shop knows what to tap. Choose 6061-T6, bead blast + anodise, threads per drawing.
+
+## Fully printed builds
+
+Each `printed/` 3MF opens in Bambu Studio with every part on its own plate. Filament 2 is the visible face, so you can choose its colour. Per-part walls and infill are already set, and nothing needs supports. The face prints face-down in two dovetailed halves: on the 12.9″ and mini the seam is on the centreline, and on the M5s it sits just right of the camera notch. Printer, process and filament presets aren't embedded, so pick your own printer, PETG or ASA, and a Textured PEI plate. Each `print/one_piece/` folder has the split parts uncut, for large-bed printers.
 
 ## Repository layout
 
 ```
-README.md                  this page
-manuals/float/             Float build manual: PDF, BUILD_MANUAL.md, images/
-manuals/flush/             Flush build manual: PDF, BUILD_MANUAL.md, images/
-ipad_pro_12_9_gen3/        one folder per iPad, each with four builds (below)
-ipad_pro_13_m5/
-ipad_pro_11_m5/
-ipad_mini_a17_pro/
-src/                       parametric CadQuery sources that generate every file
-  tablets.py               the four iPads: size, cameras, speakers, mics, buttons
-  float6.py · flush6.py    the two mounts (+ checks.txt clash tests)
-  printed6.py              printed faces (halves + one-piece)
-  drawing6.py              JLCCNC drawing for the Float shell
-  template6.py             A3 cut-out template for the Flush
-  hardware6.py             screws, inserts, nuts, magnets, pins for the STEP assemblies
-  make3mf6.py · make3mf.py Bambu Studio projects
-  overhang_audit.py · audit_all.py · render6.py
-tools/manual/              scripts that render the manual images (VTK + matplotlib)
-overhang_audit.txt         overhang audit of every printed part, every iPad
-previous-releases/         Float v4.1 / v4.2, Flush v5.1 and their fully printed versions (12.9″ only)
+manuals/float/, manuals/flush/   build manuals: PDF, web version (BUILD_MANUAL.md), images
+ipad_pro_12_9_gen3/              one folder per iPad, each with four builds:
+ipad_pro_13_m5/                    float/machined/   aluminium shell (STEP + CNC drawing) + printed parts
+ipad_pro_11_m5/                    float/printed/    everything printed: Bambu Studio 3MF + STL/STEP
+ipad_mini_a17_pro/                 flush/machined/   aluminium trim (STEP) + printed parts + A3 template
+                                   flush/printed/    everything printed: 3MF + STL/STEP + A3 template
+                                 each with assembly_*.step (all hardware), hardware.txt and checks.txt
+src/                             the parametric CadQuery sources that generate every file
+tools/manual/                    scripts that render the manual images
+overhang_audit.txt               overhang check of every printed part, for every iPad
+previous-releases/               Float v4.1 / v4.2, Flush v5.1 (12.9″ only, superseded)
 ```
 
-## The iPads
+## Customising and regenerating
 
-| Folder | iPad | Size (mm) | Source of the dimensions |
-|---|---|---|---|
-| [`ipad_pro_12_9_gen3/`](ipad_pro_12_9_gen3/) | iPad Pro 12.9″ (3rd gen: A1876, A1895, A2014, A1983) | 280.6 × 214.9 × 5.9 | v4.2 / v5.1 values. **Button positions are estimates** (see below) |
-| [`ipad_pro_13_m5/`](ipad_pro_13_m5/) | iPad Pro 13″ (M5, 2025) | 281.58 × 215.53 × 5.125 | Apple Accessory Design Guidelines |
-| [`ipad_pro_11_m5/`](ipad_pro_11_m5/) | iPad Pro 11″ (M5, 2025) | 249.70 × 177.51 × 5.288 | Apple Accessory Design Guidelines |
-| [`ipad_mini_a17_pro/`](ipad_mini_a17_pro/) | iPad mini (A17 Pro, 2024) | 195.43 × 134.75 × 6.32 | Apple Accessory Design Guidelines |
-
-Each iPad folder holds four builds, with machined and printed kept apart:
-
-```
-<ipad>/
-  float/machined/   aluminium shell (STEP + JLCCNC drawing) + printed carrier, hanger, lock, bracket, rail
-                    assembly_float6.step (with all hardware) · hardware.txt · checks.txt
-  float/printed/    the same mount with a printed face: Bambu Studio 3MF + STLs
-                    assembly_float6_printed.step · hardware.txt
-  flush/machined/   aluminium trim (STEP) + printed sleeve, deck, back plate, arms + A3 cut-out template
-                    assembly_flush6.step (with all hardware) · hardware.txt · checks.txt
-  flush/printed/    the same mount with a printed trim: Bambu Studio 3MF + STLs + A3 cut-out template
-                    assembly_flush6_printed.step · hardware.txt
-  printed_checks.txt
-```
-
-Every `print/` folder also has a `one_piece/` subfolder with the split parts uncut (carrier, sleeve, deck, back plate and printed faces), for large-bed printers.
-
-## What changed from v4.2 / v5.1 ([previous releases](previous-releases/))
-
-1. **Volume buttons no longer pressed.** The carrier (Float) and the sleeve wall (Flush) now have a relief pocket at every button: 1.2 mm deep into the wall, running the button's length plus a margin at each end. On the 12.9″ the volume relief runs 8 to 48 mm from the top-left corner along the top edge, and the top-button relief 8 to 36 mm down the left end. These are generous because v4.2 pressed the buttons and Apple publishes no drawing for that model.
-2. **2 mm more room for the USB-C loop at each end.** The plug cavity is 2 mm longer, so the cable can bend back around the plug. The frame ends are 2 mm wider to match, so each mount is **4 mm longer overall** than v4.2 / v5.1. Both ends grow so the face stays symmetric.
-3. **Lateral stops on the Float hook.** The catch rail on the wall bracket now has an end cheek at each side, rising 12 mm above the lip. The hanger drops between them with 0.4 mm clearance each side, so the carrier can no longer slide left or right on the wall. In the model, shifting the hanger 0.5 mm either way runs it into a cheek.
-4. **Thinner iPads, same safe holes.** The shell's boss height now tracks the iPad's thickness, so every tapped hole keeps a **1.45 mm (M3) / 1.58 mm (M2.5) skin** under the drill point on all four models.
-5. **Every screw, insert, nut, magnet and pin is in the STEP assemblies** (`hardware6.py`): 42 parts in the Float, 42 in the Flush (34 on the 11″ and mini, which have 4 magnet pairs). Each is named by size and standard, e.g. `hw_M3x5_cap_ISO4762_3`, and `hardware.txt` beside each assembly is its bill of materials. The build checks that no head, nut, magnet or pin touches a part it shouldn't, and that every thread and insert bites into its own part. That check found a real fault in the Flush for the 11″ and mini (a locating pin hole under a clamp post), now fixed.
-6. **iPad Pro M5 front camera on the long edge.** The camera slot moves to the top bar. The printed face's seam moves 3 mm past it, and the inner top/bottom bosses move out to clear the seam keys.
-
-Each model's speaker, mic and button openings come from Apple's drawings (the 12.9″ from v4.2), and they set where the bosses, magnets, pins and clamp arms go. `checks.txt` lists the positions chosen and every clash test.
-
-## Per-model summary
-
-| | 12.9″ (3rd gen) | 13″ M5 | 11″ M5 | mini A17 Pro |
-|---|---|---|---|---|
-| **Float** shell | 348.1 × 238.9 × 11.7 | 349.1 × 239.5 × 10.9 | 317.2 × 201.5 × 11.1 | 262.9 × 158.8 × 12.1 |
-| Shell mass (6061) | 231 g | 227 g | 196 g | 161 g |
-| Plate stock | 12 mm | 12 mm | 12 mm | 15 mm (or 12.7) |
-| Off the wall | 25.7 | 24.9 | 25.1 | 26.1 |
-| Shell screws | 8× M3 × 5 + 8× M2.5 × 5 socket cap (ISO 4762) | M3 × 5 / M2.5 × 5 **button head (ISO 7380)** | M3 × 5 / M2.5 × 5 **button head (ISO 7380)** | 8× M3 × 5 + 8× M2.5 × 5 socket cap (ISO 4762) |
-| Wall bracket | 200 × 200, AU plate holes | 200 × 200.6, AU plate holes | 200 × 162.6, AU plate holes | 200 × 119.8, no AU holes (no room) |
-| **Flush** trim | 359.1 × 233.6 × 3 | 360.1 × 234.2 × 3 | 328.2 × 196.2 × 3 | 273.9 × 153.4 × 3 |
-| Trim mass (6061) | 196 g | 199 g | 169 g | 135 g |
-| Plasterboard cut-out | 347.1 × 221.6 | 348.1 × 222.2 | 316.2 × 184.2 | 261.9 × 141.4 |
-| Max off-centre between studs (450 c/c, 45 mm studs) | 19 mm | 19 mm | 35 mm | 62 mm |
-| Magnets | 8 pairs | 8 pairs | 4 pairs | 4 pairs |
-
-All sizes are in mm. Box depth is 57.5 mm from the wall face on every model.
-
-**Why button heads on the M5s:** these iPads are about 0.6 mm thinner than the 12.9″, so the carrier is thinner too. The counterbore under each screw head is then only 2.2–2.4 mm deep, so a standard cap head (3 mm) would sit 0.6–0.8 mm proud of the carrier back and could rock the carrier on the bracket. ISO 7380 button heads (1.65 mm on M3, 1.3 mm on M2.5) sit below the surface. DIN 7984 low-head screws are hard to find in M2.5, so button heads are used for both sizes.
-
-## Ordering the shell from JLCCNC (Float, machined)
-
-Upload `float/machined/machine/shell_6061.step` together with `shell_6061_drawing.pdf`. The drawing is generated from the same parameters, with its own hole table (A1–A8 M3, B1–B8 M2.5) and section B–B. Choose 6061-T6, bead blast + anodise, and threads per drawing. JLCCNC quotes from the STEP and taps from the drawing.
-
-## Fully printed builds
-
-In each `printed/` folder, `Float_Mount_v6_<ipad>_Float_Printed.3mf` or `…_Flush_Printed.3mf` opens in Bambu Studio with every part on its plate: filament 2 for the face, per-part walls and infill set, no supports, 256 mm beds. The face halves are dovetailed. On the 12.9″ and the mini the seam is at the centre; on the M5s it is just right of the camera notch. The Float shell's pilot holes take the same screws without tapping.
-
-Printer, process and filament presets are not embedded, so choose your own printer, PETG or ASA, and a Textured PEI plate.
-
-## Before you print: check the 12.9″ buttons
-
-Apple has not published a drawing for the 3rd-gen 12.9″. Hold your iPad in landscape with USB-C on the right and measure from the top-left corner:
-
-- along the top edge, the start and end of the volume buttons, and
-- down the left end, the start and end of the top button.
-
-If either one falls outside the relief zones above, change `buttons` in `_g3()` in `src/tablets.py` and regenerate.
-
-## Regenerating
+Every size comes from the sources in [`src/`](src/): `tablets.py` describes each iPad, and `float6.py` / `flush6.py` hold the mount parameters (plug size, clearances, wall thickness). Change a number and regenerate:
 
 ```bash
 pip install cadquery trimesh vtk shapely matplotlib
 cd src
 export V6_TABLET=ipad_pro_11_m5          # or ipad_pro_12_9_gen3, ipad_pro_13_m5, ipad_mini_a17_pro
-python float6.py out/float               # shell, carrier, bracket… + checks.txt
+python float6.py out/float               # Float parts + assembly + checks.txt
 python drawing6.py out/float/machine/shell_6061_drawing.pdf
-python flush6.py out/flush               # trim, sleeve, deck, back plate, arms + checks.txt
+python flush6.py out/flush               # Flush parts + assembly + checks.txt
 python template6.py out/flush/CUTOUT_TEMPLATE_A3.pdf
-python printed6.py out/printed           # printed shell + trim, halves and one-piece
+python printed6.py out/printed           # printed faces (halves + one piece) + printed assemblies
 python make3mf6.py $V6_TABLET out/float out/flush out/printed out/3mf
-python audit_all.py out                  # overhang audit of every printed part → out/overhang_audit.txt
+python audit_all.py out                  # overhang audit
 ```
 
-The manual images come from `tools/manual/render_v6.py` (`float`, `flush` or `fronts`), and the hardware in them is the same hardware the STEP assemblies carry.
-
-[`overhang_audit.txt`](overhang_audit.txt) lists every printed part for every iPad. The only unsupported areas left are the Ø6 screw-counterbore ceilings in the Float carrier (small bridges) and first-layer countersink and chamfer edges.
-
-To add another iPad, add an entry to `src/tablets.py`. Give its size, corner radius, camera, speakers, mics, buttons and rear camera keep-out, then run the commands above. The generators place the bosses, magnets, pins and clamps clear of the openings, and `checks.txt` ends in `RESULT: ALL CHECKS PASS` or lists what clashes.
+Each `checks.txt` ends in `RESULT: ALL CHECKS PASS` or lists what clashes. To add another iPad, add it to `tablets.py` with its size, corner radius, cameras, speakers, mics and buttons. The generators then place the bosses, magnets, pins and clamps clear of its openings.
 
 ## Previous releases
 
-[`previous-releases/`](previous-releases/) keeps Float v4.1 and v4.2, Flush v5.1 and their fully printed versions, all for the iPad Pro 12.9″ only, with their manuals. v6 replaces them: it fixes the 12.9″'s pressed volume buttons and adds the room for the cable loop, so use v6 for any new build.
+[`previous-releases/`](previous-releases/) keeps Float v4.1 and v4.2, Flush v5.1 and their fully printed versions, with their manuals. They are for the iPad Pro 12.9″ only and are superseded by v6. Use v6 for any new build.
 
 ## Notes
 
-- The M5 and mini features come from Apple's Accessory Design Guidelines drawings; the 12.9″'s are close estimates. Print a test fit before you machine metal or cut a wall.
-- The physical buttons end up covered. Use AssistiveTouch, Siri or Settings › Shut Down.
+- The M5 and mini features come from Apple's Accessory Design Guidelines; the 12.9″'s are close estimates. Print a test fit before you machine metal or cut a wall.
+- The physical buttons end up covered, so use AssistiveTouch, Siri or Settings › Shut Down. On the mini the Touch ID button is covered too, so unlock with the passcode.
 - The build manuals follow the style of the free [Flightory](https://flightory.com) RC plane manuals.
 
 ## Licence
