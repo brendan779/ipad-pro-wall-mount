@@ -14,6 +14,8 @@ There are two versions:
 | Build manual (PDF) | [Float_Mount_v4.1_Build_Manual.pdf](float-v4.1/Float_Mount_v4.1_Build_Manual.pdf) | [Float_Mount_v5.1_Flush_Build_Manual.pdf](flush-v5.1/Float_Mount_v5.1_Flush_Build_Manual.pdf) |
 | Build manual (web) | [BUILD_MANUAL.md](float-v4.1/BUILD_MANUAL.md) | [BUILD_MANUAL.md](flush-v5.1/BUILD_MANUAL.md) |
 
+**Ordering the Float shell from a CNC service?** Use [**Float v4.2**](float-v4.2/). It is v4.1 plus a JLCCNC-ready manufacturing drawing (threaded holes M3/M2.5, hole table, section), drill-point-safe hole depths with M3 × 5 / M2.5 × 5 screws, and one-piece versions of the split printed parts for large-bed printers.
+
 **No CNC?** Both mounts also come in a [**fully printed**](fully-printed/) version. The aluminium face becomes a two-piece printed face joined with dovetails, and each version has a ready-to-slice Bambu Studio 3MF (also suitable for MakerWorld).
 
 Both versions use a **standard straight USB-C cable** (the plug and its bend hide inside the frame ends), a PoE+ to USB-C adapter (e.g. PoE Texas / Heckler T515), and print with **no supports** on a 256 mm bed (Bambu P1S / X1C class) in PETG or ASA.
@@ -32,6 +34,10 @@ float-v4.1/                 surface-mount version
   print/                    STL + STEP for every printed part
   images/                   manual renders and schematics
 
+float-v4.2/                 v4.1 + CNC drawing for the shell, drill-safe threads, one-piece printed parts
+  machine/shell_6061_drawing.pdf   A3 drawing to send with shell_6061.step
+  print/one_piece/          uncut carrier (340 mm beds)
+
 flush-v5.1/                 flush in-wall version
   README.md, Float_Mount_v5.1_Flush_Build_Manual.pdf, BUILD_MANUAL.md, flush51.py
   CUTOUT_TEMPLATE_A3.pdf    print at 100% on A3 (100 mm check bar)
@@ -39,8 +45,9 @@ flush-v5.1/                 flush in-wall version
 
 fully-printed/              no-machining versions: printed face halves + Bambu Studio 3MF projects
   float-v4.1-printed/       Float_Mount_v4.1_Printed.3mf, print/
+  float-v4.2-printed/       Float_Mount_v4.2_Printed.3mf, print/, print/one_piece/ (uncut shell + carrier)
   flush-v5.1-printed/       Float_Mount_v5.1_Flush_Printed.3mf, print/
-  printed.py, make3mf.py    regenerate the printed faces and the 3MFs
+  printed.py, printed42.py, make3mf.py   regenerate the printed faces and the 3MFs
 
 tools/manual/               scripts that render the manual images (VTK + matplotlib)
 ```
