@@ -379,7 +379,8 @@ if __name__ == "__main__":
     for nm, p in (("rear", rear_a), ("shell", shell_a), ("ipad", ipad), ("bracket", br), ("plug", plug)):
         cq.exporters.export(p, f"{out}/_{nm}.stl", tolerance=0.05)
     assy = cq.Assembly(name=f"Float_v6_{TAB_KEY}")
-    assy.add(br, name="wall_bracket", color=cq.Color(0.62, 0.63, 0.66))
+    assy.add(br_plate, name="wall_bracket", color=cq.Color(0.62, 0.63, 0.66))
+    assy.add(catch_rail, name="catch_rail", color=cq.Color(0.85, 0.45, 0.15))
     assy.add(car_a, name="carrier", color=cq.Color(0.15, 0.15, 0.17))
     assy.add(hanger_a, name="hanger", color=cq.Color(0.85, 0.45, 0.15))
     assy.add(lock_a, name="lock_boss", color=cq.Color(0.85, 0.45, 0.15))

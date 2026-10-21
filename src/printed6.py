@@ -103,7 +103,8 @@ if __name__ == "__main__":
         rep.append(f"overlap {nm}: {v:.3f}")
     # full STEP assemblies of the printed builds, hardware included
     fa = cq.Assembly(name=f"Float_v6_printed_{h.TAB_KEY}")
-    fa.add(h.br, name="wall_bracket", color=cq.Color(0.62, 0.63, 0.66))
+    fa.add(h.br_plate, name="wall_bracket", color=cq.Color(0.62, 0.63, 0.66))
+    fa.add(h.catch_rail, name="catch_rail", color=cq.Color(0.85, 0.45, 0.15))
     fa.add(h.car_a, name="carrier", color=cq.Color(0.15, 0.15, 0.17))
     fa.add(h.hanger_a, name="hanger", color=cq.Color(0.85, 0.45, 0.15))
     fa.add(h.lock_a, name="lock_boss", color=cq.Color(0.85, 0.45, 0.15))
